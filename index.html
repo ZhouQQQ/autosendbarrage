@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<base href="<%=basePath%>">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1,IE=9">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="img/cxtv_logo.jpg">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<title>弹幕自动档</title>
+</head>
+<body style="background-color: #eee">
+  <!-- 导航 -->
+  <nav style="background-color: #ffffff; border-bottom: solid 1px"
+  class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a  class="navbar-brand "
+        style="padding: 0px 15px 0px 0px; margin: 0px"><img
+        src="img/cxtv.png" alt="抽象TV"></a>
+      <button type="button" class="navbar-toggle collapsed"
+        data-toggle="collapse" data-target="#navbar-collapse">
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span
+          class="icon-bar"></span>
+      </button>
+    </div>
+    </div>
+  </nav>
+
+  <!--主要显示-->
+  <div class="container" style="margin-top: 80px;">
+    <div class="col-sm-5 ">
+      <div class="well" style="line-height: 2">
+        <blockquote>
+          <h2 style="font-family: '微软雅黑'">使用方法</h2>
+        </blockquote>
+        <ol>
+          <li>进入斗鱼直播房间并登录</li>
+          <li>按F12或在浏览器设置中进入开发者工具</li>
+          <li>Chrome、360、QQ浏览器等进入Console选项卡,IE浏览器进入控制台选项卡</li>
+          <li>
+            在输入框中插生成的代码,按Enter执行,IE按Ctrl+Enter或点击运行脚本</li>
+
+        </ol>
+        <blockquote>
+          <h2 style="font-family: '微软雅黑'">PS</h2>
+        </blockquote>
+        <ul>
+          <li>未登录会弹出斗鱼登录对话框</li>
+          <li>末尾会加上 ‘-执行次数’</li>
+          <li>双击弹幕输入框或可以提前停车</li>          
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="col-sm-7">
+
+      <form id="inputAttr">
+        <div class="form-group">
+          <label for="content" class="control-label">开车内容(斗鱼限制20个字符)</label>
+          <input type="text" class="form-control" id="content" name="content"
+             placeholder="内容" maxlength="20">
+
+        </div>
+        <div class="form-group">
+          <label for="aintervalTime" class="control-label">发车间隔(单位：秒)</label>
+          <input type="number" class="form-control" id="intervalTime" name="intervalTime"
+            placeholder="最快不超过房间设置的发言间隔" >
+
+
+
+        </div>
+        <div class="form-group">
+          <label for="times" class="control-label">发车次数</label> <input
+            type="number" class="form-control" id="times" name="times" placeholder="发车的次数"
+            >
+        </div>
+
+        <div class="form-group">
+
+          <button type="button" id="geneBtn"
+            class="btn btn-success  form-control">生成脚本并复制到剪切板</button>
+
+
+        </div>
+
+        <textarea spellcheck="false" id="geneCode" class="form-control"
+          rows="20"></textarea>
+      </form>
+    </div>
+  </div>
+
+  <div class="container"></div>  
+
+  <script src="js/jquery-1.11.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>  <script
+    src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <script src="js/bootstrapValidator.min.js"></script> 
+  <script src="js/validate.js"></script>  
+  <script src="js/main.js"></script>
+</body>
+</html>
