@@ -29,11 +29,6 @@ $(function(){
     }
   });
 
-  //按下ENTER键
-  $(window).keydown(function(event){
-    if(event.keyCode==13){
-      $('#geneBtn').click();
-    }     
   
 });
 })
