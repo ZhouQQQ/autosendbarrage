@@ -28,5 +28,6 @@ $(function(){
       $('#geneCode').html("");
     }
   });
+})
 
 
