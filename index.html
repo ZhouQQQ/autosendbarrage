@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <base href="<%=basePath%>">
@@ -48,7 +48,7 @@
         <ul>
           <li>未登录会弹出斗鱼登录对话框</li>
           <li>末尾会加上 ‘-执行次数’</li>
-          <li>双击弹幕输入框或可以提前停车</li>          
+          <li>单击弹幕输入框或可以提前停车</li>          
         </ul>
 
       </div>
@@ -58,8 +58,8 @@
 
       <form id="inputAttr">
         <div class="form-group">
-          <label for="content" class="control-label">开车内容(斗鱼限制20个字符)</label>
-          <input type="text" class="form-control" id="content" name="content"
+          <label for="content" class="control-label">开车内容(斗鱼限制23个字符)</label>
+          <input type="text" class="form-control" id="content" name="content" maxlength="23" 
              placeholder="内容" >
 
         </div>
@@ -91,14 +91,58 @@
     </div>
   </div>
 
-  <div class="container"></div>  
+  <div class="container"></div> 
+
+<script id="code">
+var setContent ='<%= content %>';
+var setIntervalTime =<%=interval%>;
+var setTimes = <%=times%>;
+var realTime=1;
+var realContent = setContent;
+var realIntervalTime
+var autoSendMsg;
+var sendTextArea = document.getElementsByClassName("ChatSend-txt")[0];
+var sendButton = document.getElementsByClassName("ChatSend-button")[0];
+sendMsg();
+sendTextArea.onclick=function(){
+  clearTimeout(autoSendMsg);
+}
+function sendMsg(){
+if(!canSend()){return;}
+realContent=setContent+'-'+realTime++;
+sendTextArea.value = realContent;
+sendButton.click();
+var roomMsgCd = getRoomMsgCd();
+if(roomMsgCd>setIntervalTime){
+realIntervalTime=roomMsgCd;
+}else{
+ realIntervalTime=setIntervalTime;
+}
+autoSendMsg = setTimeout("sendMsg()",realIntervalTime*1000+300);
+realContent=setContent;
+if(realTime>setTimes){
+clearTimeout(autoSendMsg);
+}
+}
+function getRoomMsgCd(){
+if(!isNaN(Number(sendButton.innerText))){
+return Number(sendButton.innerText);
+}else{
+return realIntervalTime;
+}
+}
+function canSend(){
+return sendButton.className.toLocaleString().search("is-gray")==-1;
+}
+</script> 
 
   <script src="js/jquery-1.11.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="https://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>  <script
     src="https://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <script src="js/bootstrapValidator.min.js"></script> 
-  <script src="js/validate.js"></script>  
+  <script src="js/validate.js"></script>
+  <script src="js/template-web.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
