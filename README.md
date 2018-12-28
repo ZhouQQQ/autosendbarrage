@@ -1,4 +1,5 @@
 # AutoSendBarrage
-斗鱼自动发弹幕
+利用JS脚本自动发送斗鱼弹幕
 
-##[点击这里进入主界面](https://zhouqqq.github.io/autosendbarrage/)
+在线生成代码地址
+https://zhouqqq.github.io/autosendbarrage
